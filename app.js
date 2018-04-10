@@ -74,3 +74,5 @@ app.post('/invite', function(req, res) {
       return '';
   });
 });
+
+module.exports = app;
