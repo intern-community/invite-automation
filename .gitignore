@@ -1,0 +1,7 @@
+node_modules
+.eslintrc
+.env
+.env.*
+.idea/
+.DS_Store
+.env
