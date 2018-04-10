@@ -1,10 +1,10 @@
-import express from 'express';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import config from './config';
-import request from 'request';
-import airtable from 'airtable';
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const config = require('./config');
+const request = require('request');
+const airtable = require('airtable');
 const app = express();
 
 app.use(bodyParser.json());
