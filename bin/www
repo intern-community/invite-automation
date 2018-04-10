@@ -12,7 +12,7 @@ try {
   // no env file
 }
 
-const app = require('../index');
+const app = require('../app');
 const http = require('http');
 
 // Normalize a port into a number, string, or false.
