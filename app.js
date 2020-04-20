@@ -68,7 +68,7 @@ app.post('/invite', function(req, res) {
           res.send('ok');
       } else {
           let error = parsed_body.error;
-          if (error === 'already_invited' || error === 'already_in_team') {
+          if (error === 'already_invited' || error === 'already_in_team' || error === 'already_in_team_invited_user') {
               res.send('existing');
               return '';
           } else if (error === 'invalid_email') {
