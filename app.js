@@ -32,6 +32,11 @@ app.post('/invite', function(req, res) {
       baseName: "SEA Interns",
       slackUrl: config.slackurlSEA,
       slackToken: config.slacktokenSEA,
+    },
+    "ic": {
+      baseName: "ICUSERS",
+      slackUrl: config.slackurlIC,
+      slackToken: config.slacktokenIC,
     }
   })[id]
 
