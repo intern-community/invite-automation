@@ -40,18 +40,6 @@ app.post('/invite', function(req, res) {
     }
   })[id]
 
-  base(city(req.body.id).baseName).create({
-      "Name": req.body.name,
-      "Email": req.body.email,
-      "Company": req.body.company,
-      "School": req.body.school,
-  }, (err, record) => {
-      if (err) {
-          console.error(err);
-          return;
-      }
-  });
-
   // Post data to the slack endpoint
   request.post({
       url: 'https://' + city(req.body.id).slackUrl + '/api/users.admin.invite',
@@ -65,7 +53,19 @@ app.post('/invite', function(req, res) {
       if (err) return res.send('error: ' + err);
       const parsed_body = JSON.parse(body);
       if (parsed_body.ok) {
+          base(city(req.body.id).baseName).create({
+              "Name": req.body.name,
+              "Email": req.body.email,
+              "Company": req.body.company,
+              "School": req.body.school,
+          }, (err, record) => {
+              if (err) {
+                  console.error(err);
+                  return;
+              }
+          });
           res.send('ok');
+          
       } else {
           let error = parsed_body.error;
           if (error === 'already_invited' || error === 'already_in_team' || error === 'already_in_team_invited_user') {
